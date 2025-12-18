@@ -16,13 +16,11 @@ public class Main {
         DataRetriever data = new DataRetriever();
 
         Team real = data.findTeamById(1);
-        if (real != null) {
-            System.out.println(real.getName());
-            real.getPlayers().forEach(p -> System.out.println(p.getName()));
-        }
+        System.out.println(real.getName());
+        real.getPlayers().forEach(p -> System.out.println(p.getName()));
 
         Team interMiami = data.findTeamById(5);
-        if (interMiami != null) System.out.println(interMiami.getName() + " | " + interMiami.getPlayersCount());
+        System.out.println(interMiami.getName() + " | " + interMiami.getPlayersCount());
 
         data.findPlayers(1, 2).forEach(p -> System.out.println(p.getName()));
         data.findTeamsByPlayerName("an").forEach(t -> System.out.println(t.getName()));
@@ -34,7 +32,9 @@ public class Main {
                     new Player(null, "Jude Bellingham", 23, PlayerPositionEnum.STR),
                     new Player(null, "Pedri", 24, PlayerPositionEnum.MIDF)
             ));
-        } catch (RuntimeException e) {}
+        } catch (RuntimeException e) {
+            System.out.println("RuntimeException attendue : " + e.getMessage());
+        }
 
         List<Player> newPlayers = data.createPlayers(List.of(
                 new Player(null, "Vini", 25, PlayerPositionEnum.STR),

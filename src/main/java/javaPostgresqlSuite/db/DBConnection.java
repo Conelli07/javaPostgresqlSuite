@@ -7,13 +7,9 @@ import java.sql.SQLException;
 public class DBConnection {
 
     public Connection getDBConnection() throws SQLException {
-        String jdbcUrl = System.getenv("JDBC_URL");
-        String username = System.getenv("USERNAME");
-        String password = System.getenv("PASSWORD");
-
-        if (jdbcUrl == null || username == null || password == null) {
-            throw new SQLException("Variables d'environnement manquantes");
-        }
+        String jdbcUrl = "jdbc:postgresql://localhost:5432/mini_football_db";
+        String username = "mini_football_db_manager";
+        String password = "123456";
 
         try {
             Class.forName("org.postgresql.Driver");
