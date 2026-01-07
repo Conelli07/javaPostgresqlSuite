@@ -8,7 +8,7 @@ public class Player {
     private Integer age;
     private PlayerPositionEnum position;
     private Team team;
-    private Integer goalNb; // nouvel attribut
+    private Integer goalNb;
 
     public Player() {}
 

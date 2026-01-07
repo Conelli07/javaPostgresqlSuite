@@ -18,3 +18,12 @@ CREATE TABLE player (
     FOREIGN KEY (id_team) REFERENCES team(id) ON DELETE SET NULL,
     UNIQUE(name, age, position)
 );
+
+ALTER TABLE player ADD COLUMN IF NOT EXISTS goal_nb INTEGER;
+
+UPDATE player SET goal_nb = 0 WHERE name = 'Thibaut Courtois';
+UPDATE player SET goal_nb = 2 WHERE name = 'Dani Carvajal';
+UPDATE player SET goal_nb = 5 WHERE id = 3 AND name = 'Jude Bellingham';
+UPDATE player SET goal_nb = NULL WHERE name = 'Robert Lewandowski';
+UPDATE player SET goal_nb = NULL WHERE name = 'Antoine Griezmann';
+
